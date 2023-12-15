@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hu">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <!-- Always force latest IE rendering engine or request Chrome Frame -->
@@ -23,7 +23,7 @@
 
   </head>
 
-  <body class="hu hu_faq">
+  <body class="faq">
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -36,7 +36,7 @@
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
-            <h1><a href="/dashboard/hu/index.html">Apache Friends</a></h1>
+            <h1><a href="/dashboard/index.html">Apache Friends</a></h1>
           </li>
           <li class="toggle-topbar menu-icon">
             <a href="#">
@@ -48,8 +48,8 @@
         <section class="top-bar-section">
           <!-- Left Nav Section -->
           <ul class="left">
-              <li class="item active"><a href="/dashboard/hu/faq.html">Gyakori kérdések</a></li>
-              <li class="item "><a href="/dashboard/hu/howto.html">HOW-TO Guides</a></li>
+              <li class="item active"><a href="/dashboard/faq.html">FAQs</a></li>
+              <li class="item "><a href="/dashboard/howto.html">HOW-TO Guides</a></li>
               <li class="item "><a target="_blank" href="/dashboard/phpinfo.php">PHPInfo</a></li>
               <li class="item "><a href="/phpmyadmin/">phpMyAdmin</a></li>
           </ul>
@@ -61,176 +61,176 @@
       <div class="hero">
   <div class="row">
     <div class="large-12 columns">
-      <h1>Windows <span>Gyakran ismételt kérdések</span></h1>
+      <h1>Windows <span>Frequently Asked Questions</span></h1>
     </div>
   </div>
 </div>
 <div class="row">
     <div class="large-8 columns">
     <dl class="accordion">
-      <dt>Hogyan telepítsem a XAMPP-ot?</dt>
+      <dt>How do I install XAMPP?</dt>
       <dd>
-      <p>A XAMPP Windows változata három különböző formában létezik:</p>
-      <p>Telepítő:<br />
-      Valószínűleg a legegyszerűbb módja a XAMPP telepítésének.</p>
+      <p>XAMPP for Windows exists in three different flavors:</p>
+      <p>Installer:<br />
+      Probably the easiest way to install XAMPP.</p>
       <p>ZIP:<br />
-      Puristáknak: a XAMPP szokásos ZIP archívumként.</p>
+      For purists: XAMPP as ordinary ZIP archive.</p>
       <p>7zip:<br />
-      Puristáknak kis sávszélességgel: a XAMPP 7zip archívumként.</p>
-      <p>Megjegyzés: A fájlok kibontásakor előfordulhatnak hamis pozitív vírusriasztások.</p>
-      <p><strong>A telepítő használata:</strong></p>
+      For purists with low bandwidth: XAMPP as 7zip archive.</p>
+      <p>Note: If you extract the files, there can be false-positives virus warnings.</p>
+      <p><strong>Using the installer:</strong></p>
       <p></p>
-      <p>Használja a Xampp vezérlőpultot az Apache, MySQL, FileZillaés a Mercury szolgáltatások elindításához és leállításához vagy a server szolgáltatások telepítéséhez.</p>
-      <p><strong>Telepítés ZIP-ből</strong></p>
-      <p>Bontsa ki a zip archívumokat a választott mappába. A XAMPP a „C:\\xampp” alkönyvtárba kerül kibontásra a választott célkönyvtár alá. Most indítsa el a „setup_xampp.bat” fájlt, hogy elvégezze a XAMPP beállítását a rendszeréhez.</p>
-      <p>Ha a „C:\\” gyökérkönyvtárat válassza célnak, akkor nem szabad a „setup_xampp.bat” fájlt futtatnia.</p>
-      <p>Mint a telepítő verzióban, most már használhatja a „XAMPP vezérlőpultot” a további feladatokhoz.</p>
+      <p>The XAMPP control panel for start/stop Apache, MySQL, FileZilla & Mercury or install these server as services.</p>
+      <p><strong>Installing from ZIP</strong></p>
+      <p>Unzip the zip archives into the folder of your choice. XAMPP is extracting to the subdirectory "C:\xampp" below the selected target directory. Now start the file "setup_xampp.bat", to adjust the XAMPP configuration to your system.</p>
+      <p>If you choose a root directory "C:\" as target, you must not start "setup_xampp.bat".</p>
+      <p>Like with the installer version, you can now use the "XAMPP Control Panel" for additional tasks.</p>
       </dd>
       <dt>Does XAMPP include MySQL or MariaDB?</dt>
       <dd>
       <p>Since XAMPP 5.5.30 and 5.6.14, XAMPP ships MariaDB instead of MySQL. The commands and tools are the same for both.</p>
       </dd>
-      <dt>Hogyan indíthatom a XAMPP programot beállítás nélkül?</dt>
+      <dt>How can I start XAMPP without setup?</dt>
       <dd>
-      <p>Ha a XAMPP programot egy felsőszintű mappába bontotta ki, mint például „C:\\” vagy „D:\\”, akkor a legtöbb szolgáltatást - úgymint Apache vagy MySQL - közvetlenül is el tudja indítani a „setup_xampp.bat” fájl futtatása nélkül.</p>
-      <p>Nem javasolt a beállító parancsfájl használata, vagy relatív elérési utak kiválasztása a beállító parancsfájlban, ha a XAMPP programot USB-meghajtóra telepítette. Ennek oka, hogy minden PC más meghajtóbetűt rendelhet a meghajtónak. Bármikor átválthat abszolút útvonalakról relatívakra a beállító parancsfájllal.</p>
-      <p>A Letöltések oldalról elérhető telepítő használata a legegyszerűbb módja a XAMPP telepítésének. A telepítés befejezése után a Start | Programok | XAMPP helyen fogja megtalálni a XAMPP programot. A XAMPP vezérlőpultot használhatja az összes kiszolgáló indításához és leállításához, valamint szolgáltatások telepítéséhez és eltávolításához.</p>
-      <p>Használja a Xampp vezérlőpultot az Apache, MySQL, FileZillaés a Mercury szolgáltatások elindításához és leállításához vagy a server szolgáltatások telepítéséhez.</p>
+      <p>If you extract XAMPP in a top level folder like "C:\" or "D:\", you can start most servers like Apache or MySQL directly without execution of the file "setup_xampp.bat".</p>
+      <p>Not using the setup script, or selecting relative paths in the setup script, is preferred if you are installing XAMPP on a usb drive. Because on each pc such a drive can have an other drive letter. You can switch from absolute to relative paths at any time with the setup script.</p>
+      <p>Using the installer from our Downloads page is the easiest way to install XAMPP. After the installation is complete, you will find XAMPP under   Start | Programs | XAMPP. You can use the XAMPP Control Panel to start/stop all server and also install/uninstall services.</p>
+      <p>The XAMPP control panel for start/stop Apache, MySQL, FileZilla & Mercury or install these server as services.</p>
       </dd>
-      <dt>Hogyan indíthatom el és állíthatom le a XAMPP-ot?</dt>
+      <dt>How do I start and stop XAMPP?</dt>
       <dd>
-      <p>Az egyetemes vezérlőpult a „XAMPP vezérlőpult” (köszönet: www.nat32.com). Az alábbi módon indítható:</p>
+      <p>The universal control center is the "XAMPP Control Panel" (thanks  www.nat32.com). It is started with:</p>
       <p><code>\xampp\xampp-control.exe</code></p>
-      <p>Használhat néhány kötegfájlt is a kiszolgálók indításához és leállításához:</p>
+      <p>You can also use some batchfiles to start/stop the servers:</p>
       <p>
       <ul>
-        <li>Apache és MySQL indítás:
+        <li>Apache &amp; MySQL start:
         <code>\xampp\xampp_start.exe</code></li>
-        <li>Apache és MySQL leállítás:
+        <li>Apache &amp; MySQL stop:
         <code>\xampp\xampp_stop.exe</code></li>
-        <li>Apache indítás:
+        <li>Apache start:
         <code>\xampp\apache_start.bat</code></li>
-        <li>Apache leállítás:
+        <li>Apache stop:
         <code>\xampp\apache_stop.bat</code></li>
-        <li>MySQL indítás:
+        <li>MySQL start:
         <code>\xampp\mysql_start.bat</code></li>
-        <li>MySQL leállítás:
+        <li>MySQL stop:
         <code>\xampp\mysql_stop.bat</code></li>
-        <li>Mercury levelezőkiszolgáló indítás:
+        <li>Mercury Mailserver start:
         <code>\xampp\mercury_start.bat</code></li>
-        <li>Mercury levelezőkiszolgáló leállítás:
+        <li>Mercury Mailserver stop:
         <code>\xampp\mercury_stop.bat</code></li>
-        <li>FileZilla kiszolgáló indítás:
+        <li>FileZilla Server start:
         <code>\xampp\filezilla_start.bat</code></li>
-        <li>FileZilla kiszolgáló leállítás:
+        <li>FileZilla Server stop:
         <code>\xampp\filezilla_stop.bat</code></li></ul></p>
       </p>
       </dd>
-      <dt>Hogyan ellenőrizhetem, hogy minden működik-e?</dt>
+      <dt>How can I test that everything worked?</dt>
       <dd>
-      <p>Gépelje be a következő URL-t a kedvenc webböngészőjébe:</p>
-      <p><code>http://localhost/</code> vagy  <code>http://127.0.0.1/</code> </p>
+      <p>Type in the following URL at your favourite web browser:</p>
+      <p><code>http://localhost/</code> or  <code>http://127.0.0.1/</code> </p>
       <p>You should see the XAMPP start page, as shown below.</p>
         <img src="/dashboard/images/screenshots/xampp-windows-start.jpg" />
       </dd>
-      <dt>Hogyan tudok egy kiszolgálót szolgáltatásként telepíteni?</dt>
+      <dt>How can I install a server as a service?</dt>
       <dd>
-      <p>A XAMPP minden kiszolgálója Windows szolgáltatásként is telepíthető. Ezt is a XAMPP vezérlőpultból tudja telepíteni. Ebben az esetben a parancsfájlok vagy a vezérlőpult futtatása rendszergazdai jogosultságokkal szükséges.</p>
-      <p>Apache szolgáltatás telepítés: \\xampp\\apache\\apache_installservice.bat</p>
-      <p>Apache szolgáltatás eltávolítás: \\xampp\\apache\\apache_uninstallservice.bat </p>
-      <p>MySQL szolgáltatás telepítés: \\xampp\\mysql\\mysql_installservice.bat </p>
-      <p>MySQL szolgáltatás eltávolítás: \\xampp\\mysql\\mysql_uninstallservice.bat </p>
-      <p>FileZilla szolgáltatás telepítés és eltávolítás: \\xampp\\filezilla_setup.bat </p>
-      <p>Mercury: nem érhető el szolgáltatás telepítés</p>
+      <p>Each server in XAMPP you can install also as Windows service. You can also install it from the XAMPP Control Panel. In this case it is necessary to run the scripts or the Control Panel with Administrator privileges.</p>
+      <p>Apache service install: \xampp\apache\apache_installservice.bat</p>
+      <p>Apache service uninstall: \xampp\apache\apache_uninstallservice.bat </p>
+      <p>MySQL service install: \xampp\mysql\mysql_installservice.bat </p>
+      <p>MySQL service uninstall: \xampp\mysql\mysql_uninstallservice.bat </p>
+      <p>FileZilla service (un)install: \xampp\filezilla_setup.bat </p>
+      <p>Mercury: No service installation available</p>
       </dd>
-      <dt>A XAMPP készen áll a munkához?</dt>
+      <dt>Is XAMPP production ready?</dt>
       <dd>
-      <p>A XAMPP nem a produktív használatot jelenti, ez csak egy fejlesztői környezet. A XAMPP oly módon lett beállítva, hogy annyira nyitott legyen, amennyire csak lehetséges, hogy lehetővé tegyen a fejlesztőknek bármit, amit szeretnének. Ez nagyszerű egy fejlesztői környezethez, de produktív környezetben végzetes lehet.</p>
-      <p>Itt egy lista a XAMPP hiányzó biztonsági dolgairól:</p>
+      <p>XAMPP is not meant for production use but only for development environments. XAMPP is configured to be open as possible to allow the developer anything he/she wants. For development environments, this is great but in a production environment, it could be fatal.</p>
+      <p>Here a list of missing security in XAMPP:</p>
       <ol>
-        <li>A MySQL adminisztrátornak (root) nincs jelszava.</li>
-        <li>A MySQL démon elérhető a hálózaton keresztül.</li>
-        <li>A ProFTPD a „lampp” jelszót használja a „daemon” felhasználóhoz.</li>
-        <li>A Mercury és FileZilla alapértelmezett felhasználói ismertek.</li>
+        <li>The MySQL administrator (root) has no password.</li>
+        <li>The MySQL daemon is accessible via network.</li>
+        <li>ProFTPD uses the password "lampp" for user "daemon".</li>
+        <li>The default users of Mercury and FileZilla are known.</li>
       </ol>
-      <p>Minden pont hatalmas biztonsági kockázat lehet. Különösen akkor, ha a XAMPP elérhető a hálózaton keresztül és a LAN-on kívüli emberek számára. Segíthet azonban egy tűzfal vagy egy router (NAT) használata. Egy router vagy egy tűzfal esetén a PC normális esetben nem érhető el a hálózaton keresztül. Öntől függ, hogy kijavítja-e ezeket a hibákat. Egy kis segítségként létezik egy „XAMPP biztonsági konzol”.</p>
-      <p>Kérjük tegye biztonságossá a XAMPP programot, mielőtt bármit közzétenne online. Egy tűzfal vagy egy külső router csak alacsony szintű biztonsághoz elegendő. A valamivel nagyobb biztonság érdekében futtassa a „XAMPP biztonsági konzolt” és rendeljen hozzá jelszavakat.</p>
-      <p>Ha elérhetővé szeretné tenni a XAMPP programot az interneten, akkor látogassa meg a következő URI-t, amely kijavíthat néhány problémát:</p>
+      <p>All points can be a huge security risk. Especially if XAMPP is accessible via network and people outside your LAN. It can also help to use a firewall or a (NAT) router. In case of a router or firewall, your PC is normally not accessible via network. It is up to you to fix these problems. As a small help there is the "XAMPP Security console".</p>
+      <p>Please secure XAMPP before publishing anything online. A firewall or an external router are only sufficient for low levels of security. For slightly more security, you can run the "XAMPP Security console" and assign passwords.</p>
+      <p>If you want have your XAMPP accessible from the internet, you should go to the following URI which can fix some problems:</p>
       <p><code> http://localhost/security/</code></p>
-      <p>A biztonsági konzollal beállíthatja a MySQL „root” felhasználó és a phpMyAdmin jelszavát. Továbbá bekapcsolhatja a hitelesítést a XAMPP bemutató oldalakhoz.</p>
-      <p>Ez a webalapú eszköz nem javít ki semmilyen egyéb biztonsági problémát! Különösen a FileZilla FTP-kiszolgáló és a Mercury levelezőkiszolgáló biztonságáról kell önnek gondoskodnia.</p></dd>
-      <dt>Hogyan távolíthatom el a XAMPP-ot?</dt>
+      <p>With the security console you can set a password for the MySQL user "root" and phpMyAdmin. You can also enable a authentication for the XAMPP demopages.</p>
+      <p>This web based tool does not fix any additional security issues! Especially the FileZilla FTP server and the Mercury mail server you must secure yourself.</p></dd>
+      <dt>How do I uninstall XAMPP?</dt>
       <dd>
-      <p>Amennyiben a telepítős verzióval telepítette a XAMPP programot, használja az eltávolítót. Az eltávolító el fog távolítani minden XAMPP bejegyzést a rendszerleíró adatbázisból, illetve el fogja távolítani a XAMPP részeként telepített szolgáltatásokat. Erősen ajánljuk, hogy az eltávolító használatával távolítsa el a telepítős verziójú XAMPP telepítést. Készítsen biztonsági mentést a XAMPP eltávolítása előtt minden olyan adatról, amelyet meg szeretne tartani.</p>
-      <p>Amennyiben a ZIP és a 7zip verziókkal telepítette a XAMPP programot, állítson le minden XAMPP kiszolgálót és lépjen ki minden panelből. Ha telepített valamilyen szolgáltatást, távolítsa el és állítsa le azokat is. Most egyszerűen törölje az egész mappát, ahova a XAMPP programot telepítette. Nincsenek törlendő rendszerleíró adatbázis bejegyzések és nincsenek törlendő környezeti változók.</p>
+      <p>If you installed XAMPP using the installer version, please use the Uninstaller. The Uninstaller will delete all XAMPP entries from your registry and it will uninstall some installed services included with XAMPP. We highly recommend that you use the Uninstall program for removing XAMPP installations from the Installer version.Please backup all the data you want to keep before uninstalling XAMPP.</p>
+      <p>If you installed XAMPP using the ZIP and 7zip versions, shut down all XAMPP servers and exit all panels. If you installed any services, uninstall and shut them down too. Now simply delete the entire folder where XAMPP is installed. There are no registry entries and no environment variables to  clean up.</p>
       </dd>
-      <dt>Mi a XAMPP „lite” verziója?</dt>
+      <dt>What is the "lite" version of XAMPP?</dt>
       <dd>
-      <p>A XAMPP Lite (amely „könnyűt” jelent, úgymint „könnyűsúlyú”) a XAMPP komponensek kisebb csomagja, amely kizárólag PHP és MySQL használatával történő gyors munkavégzéshez ajánlott. Néhány kiszolgáló vagy eszköz, mint például a Mercury levelező és a FileZilla FTP hiányoznak a Lite verzióból.</p>
+      <p>XAMPP Lite (means "light" as in "light-weight") is a smaller bundle of XAMPP components, which is recommended for quick work using only PHP and MySQL. Some servers or tools such as Mercury Mail and FileZilla FTP are missing in the Lite version.</p>
       </dd>
-      <dt>Hová tegyem a webes tartalmakat?</dt>
+      <dt>Where should I place my web content?</dt>
       <dd>
-      <p>Minden WWW dokumentum fő könyvtára a \\xampp\\htdocs. Ha ebbe a könyvtárba teszi a „teszt.html” fájlt, akkor a „http://localhost/teszt.html” URI segítségével férhet hozzá.</p>
-      <p>És a „teszt.php”? Csak használja a „http://localhost/teszt.php” hivatkozást. Egy egyszerű teszt-parancsfájl lehet:</p>
+      <p>The main directory for all WWW documents is \xampp\htdocs. If you put a file "test.html" in this directory, you can access it with the URI "http://localhost/test.html".</p>
+      <p>And "test.php"? Just use "http://localhost/test.php". A simple testscript can be:</p>
       <p><code>&lt;?php<br />
         echo 'Hello world'; <br />
         ?&gt;</code></p>
-      <p>Egy új alkönyvtár a webhez? Csak hozzon létre egy új könyvtárat (például „valami”) a „\\xampp\\htdocs” könyvtáron belül (a legjobb szóközök nélkül és csak ASCII karakterekkel), hozzon létre egy tesztfájlt ebben a könyvtárban és elérheti a „http://localhost/valami/teszt.php” címen.</p>
-      <p><strong>További specifikációk</strong></p>
+      <p>A new subdirectory for your web? Just make a new directory (e.g. "new") inside the directory "\xampp\htdocs" (best without whitespaces and only ASCII), create a test file in this directory and access it with "http://localhost/new/test.php".</p>
+      <p><strong>Further specifics</strong></p>
       <p>HTML:<br>
-      Programfájl: \xampp\htdocs<br>
-      Engedélyezett végződések: .html .htm<br>
-      => alap csomag</p>
+      Executable: \xampp\htdocs<br>
+      Allowed endings: .html .htm<br>
+      => basic package</p>
       <p>SSI:<br>
-      Programfájl: \xampp\htdocs<br>
-      Engedélyezett végződések: .shtml<br>
-      => alap csomag</p>
+      Executable: \xampp\htdocs<br>
+      Allowed endings: .shtml<br>
+      => basic package</p>
       <p>CGI:<br>
-      Programfájl: \xampp\htdocs and \xampp\cgi-bin<br>
-      Engedélyezett végződések: .cgi<br>
-      => alap csomag</p>
+      Executable: \xampp\htdocs and \xampp\cgi-bin<br>
+      Allowed endings: .cgi<br>
+      => basic package</p>
       <p>PHP:<br>
-      Programfájl: \xampp\htdocs and \xampp\cgi-bin<br>
-      Engedélyezett végződések: .php<br>
-      => alap csomag</p>
+      Executable: \xampp\htdocs and \xampp\cgi-bin<br>
+      Allowed endings: .php<br>
+      => basic package</p>
       <p>Perl:<br>
-      Programfájl: \xampp\htdocs and \xampp\cgi-bin<br>
-      Engedélyezett végződések: .pl<br>
-      => alap csomag</p>
+      Executable: \xampp\htdocs and \xampp\cgi-bin<br>
+      Allowed endings: .pl<br>
+      => basic package</p>
       <p>Apache::ASP Perl:<br>
-      Programfájl: \xampp\htdocs<br>
-      Engedélyezett végződések: .asp<br>
-      => alap csomag</p>
+      Executable: \xampp\htdocs<br>
+      Allowed endings: .asp<br>
+      => basic package</p>
       <p>JSP Java:<br>
-      Programfájl: \xampp\tomcat\webapps\java (e.g.)<br>
-      Engedélyezett végződések: .jsp<br>
+      Executable: \xampp\tomcat\webapps\java (e.g.)<br>
+      Allowed endings: .jsp<br>
       => Tomcat add-on</p>
       <p>Servlets Java:<br>
-      Programfájl: \xampp\tomcat\webapps\java (e.g.)<br>
-      Engedélyezett végződések: .html (u.a)<br>
+      Executable: \xampp\tomcat\webapps\java (e.g.)<br>
+      Allowed endings: .html (u.a)<br>
       => Tomcat add-on</p>
       </dd>
-      <dt>Áthelyezhetem a XAMPP telepítését?</dt>
+      <dt>Can I move the XAMPP installation?</dt>
       <dd>
-      <p>Igen. A XAMPP könyvtár áthelyezése után le kell futtatnia a „setup_xampp.bat” parancsfájlt. A beállítófájlban lévő elérési út ehhez a lépéshez lesz igazítva.</p>
-      <p>Amennyiben valamilyen kiszolgálót Windows szolgáltatásként telepített, akkor először el kell távolítania a Windows szolgáltatást, majd az áthelyezés után ismét telepítheti azt.</p>
-      <p>Figyelem: a saját parancsfájljaiban lévő beállítófájlok, mint például PHP alkalmazások, nem lesznek hozzáigazítva. De lehetséges egy „bővítmény” írása a telepítőhöz. Egy ilyen bővítménnyel a telepítő ezeket a fájlokat is hozzá tudja igazítani.</p>
+      <p>Yes. After moving of the XAMPP directory, you must execute "setup_xampp.bat". The paths in the configuration files will be adjusted with this step.</p>
+      <p>If you have installed any server as Windows service, you must first remove the Windows service, and after the moving you can install the service again.</p>
+      <p>WARNING: The configuration files from your own scripts, like PHP applications, are not adjusted. But it's possible to write a "plug-in" for the installer. With such a plug-in, the installer can adjust such files too.</p>
       </dd>
-      <dt>Mik az „Automatikus nyitóoldalak” a WWW könyvtárakhoz?</dt>
+      <dt>What are "Automatic start pages" for the WWW directories?</dt>
       <dd>
-      <p>A szabványos fájlnév a „DirectoryIndex” Apache függvényhez „index.html” vagy „index.php”. Minden esetben, amikor rátallóz egy mappára (például „http://localhost/xampp/”), és az Apache talál egy ilyen fájlt, akkor az Apache ezt a fájlt jeleníti meg a könyvtár listázása helyett.</p>
+      <p>The standard filename for the Apache function "DirectoryIndex" is "index.html" or "index.php". Every time you are just browsing to a folder (e.g. "http://localhost/xampp/"), and Apache can find such a file, Apache is displaying this file instead of a directory listing.</p>
       </dd>
-      <dt>Hol tudom megváltoztatni a beállításokat?</dt>
+      <dt>Where can I change the configuration?</dt>
       <dd>
-      <p>A XAMPP majdnem minden beállítása megváltoztatható beállítófájlokkal. Csak nyissa meg a fájlt egy szövegszerkesztővel és változtassa meg azt a beállítást, amelyet szeretne. Csak a FileZilla és a Mercury beállítását kell az alkalmazásbeállító eszközzel elvégezni.</p>
+      <p>Almost all settings in XAMPP you can change with configuration files. Just open the file in a textedit and change the setting you want. Only FileZilla and Mercury should be configured with the application config tool.</p>
       </dd>
 
-      <dt>Miért nem működik a XAMPP Windows XP SP2 alatt?</dt>
+      <dt>Why can't XAMPP work on Windows XP SP2?</dt>
       <dd>
-      <p>A Microsoft egy jobb tűzfalat szállított a 2. javítócsomaggal (SP2), amely automatikusan elindul. Ez a tűzfal már blokkolja a szükséges 80-as (http) és 443-as (https) portokat, és az Apache nem tud elindulni.</p>
-      <p><strong>A gyors megoldás:</strong></p>
-      <p>Tiltsa le a Microsoft tűzfalat az eszköztárral, és próbálja meg még egyszer elindítani a XAMPP programot. A jobb megoldás egy kivétel meghatározása a biztonsági központon belül.</p>
-      <p><strong>A következő portok vannak használatban az alap működéshez:</strong></p>
+      <p>Microsoft delivers a better firewall with service pack 2 (SP2), which starts automatically. This firewall now blocks the necessary ports 80 (http) and 443 (https) and Apache can't start.</p>
+      <p><strong>The fast solution:</strong></p>
+      <p>Disable the Microsoft firewall with the toolbar and try to start XAMPP onces more. The better solution is to define an exception within the security center.</p>
+      <p><strong>The following ports are used for basic functionality:</strong></p>
       <p>Apache (HTTP): Port 80<br/>
         Apache (WebDAV): Port 81</br>
         Apache (HTTPS): Port 443</br>
@@ -248,95 +248,95 @@
         Tomcat (HTTP): Port 8080</p>
       </dd>
 
-      <dt>Miért nem működik a XAMPP Vistán?</dt>
+      <dt>Why doesn't XAMPP work on Vista?</dt>
       <dd>
-      <p><strong>Felhasználói fiókok felügyelete (UAC)</strong></p>
-      <p>A „C:\\Program files” könyvtárra nincs teljes írási jogosultsága, kivéve rendszergazdaként. Vagy csak korlátozott jogosultságai vannak (például a „.\\xampp\\htdocs” mappára). Ebben az esetben nem tudja szerkeszteni a fájlt.</br>
-<strong>Megoldás:</strong> Emelje meg a jogosultságait az exploreren belül (jobb kattintás / biztonság), vagy tiltsa le a felhasználói fiókok felügyeletét (UAC).</p>
-      <p>Az Apache/MySQL kiszolgálókat a „C:\\xampp” helyre telepítette Windows szolgáltatásként. De nem tudja elindítani vagy leállítani a szolgáltatásokat a „XAMPP vezérlőpulttal”, vagy nem tudja eltávolítani azokat.</br></br>
-<strong>Megoldás:</strong> Használja a Windows szolgáltatáskezelő konzolját vagy tiltsa le az UAC-ot.</p>
-      <p><strong>A felhasználói fiókok felügyeletének (UAC) letiltása</strong></p>
-      <p>Az UAC letiltásához használja az „msconfig” programot. Az „msconfig” programban menjen az „Eszközökre”, válassza a „felhasználói fiókok felügyeletének letiltása” lehetőséget, és erősítse meg a választását. Ezután újra kell indítania a Windowst. Ezzel egy időben ismét engedélyezheti az UAC-ot.</p>
+      <p><strong>User Account Control (UAC)</strong></p>
+      <p>In the directory "C:\program files" you don't have full write privileges, even as Admin. Or you have only limited privileges (e.g. for ".\xampp\htdocs"). In this case you can't edit a file.</br>
+<strong>Solution:</strong> Raise your privileges within explorer (right click / security) or deactivate the user account control (UAC).</p>
+      <p>You have installed Apache/MySQL in "C:\xampp" as Windows service. But you can't start/stop the services with the "XAMPP Control Panel" or can't uninstall them.</br></br>
+<strong>Solution:</strong> Use the service management console from Windows or deactivate UAC.</p>
+      <p><strong>Disabling the User Account Control (UAC)</strong></p>
+      <p>To deactivate the UAC, use the program "msconfig". In "msconfig" go to "Tools", select "disable user account control" and verify your selection. Now you must restart Windows. At the same time, you can enable the UAC again.</p>
       </dd>
 
-      <dt>Hogyan ellenőrizhetem az MD5 ellenőrzőösszeget?</dt>
+      <dt>How do I check the md5 checksum?</dt>
       <dd>
-      <p>Fájlok összehasonlításához gyakran ellenőrzőösszegeket használnak. A szabvány az MD5 (Message Digest Algorithm 5) ellenőrzőösszeg létrehozása.</p>
-      <p>Ezzel az MD5 ellenőrzőösszeggel tesztelheti, hogy a XAMPP csomag letöltése helyes volt-e vagy sem. Természetesen szüksége van egy olyan programra, amely elő tudja állítani ezeket az ellenőrzőösszegeket. A Windowsnál használhatja a Microsoft eszközét:</p>
-      <p><a href="http://support.microsoft.com/kb/841290">Elérhetőség és fájl ellenőrzőösszeg integritás leírása ellenőrző segédprogram</a></p>
-      <p>Lehetséges bármely más olyan program használata is, amely létre tud hozni MD5 ellenőrzőösszegeket, úgymint a GNU md5sum.</p>
-      <p>Ha telepített egy ilyen programot (például fciv.exe), végezze el a következő lépéseket:</p>
+      <p>To compare files, often checksums are used. A standard to create this checksum md5 (Message Digest Algorithm 5).</p>
+      <p>With this md5 checksum you can test, if your download of the XAMPP package is correct or not. Of course you need a program which can create these checksums. For Windows you can use a tool from Microsoft:</p>
+      <p><a href="http://support.microsoft.com/kb/841290">Availability and description of the File Checksum Integrity Verifier utility</a></p>
+      <p>It's also possible to use any other program which can create md5 checksums, like the GNU md5sum.</p>
+      <p>As you have installed such a program (e.g. fciv.exe), you can do following steps:</p>
       <p>
         <ul>
-          <li>Töltse le a XAMPP csomagot (például xampp-win32-1.8.2-0.exe)</li>
-          <li>Hozza létre az ellenőrzőösszeget ezzel:</br>
+          <li>Download XAMPP (f.e. xampp-win32-1.8.2-0.exe)</li>
+          <li>Create the checksum with:</br>
             <code>fciv.exe xampp-win32-1.8.2-0.exe</code>
           </li>
-          <li>És most már össze tudja hasonlítani ezt az ellenőrzőösszeget azzal, amelyet a Windows rendszerre készített XAMPP honlapján talál.</li>
+          <li>And now you can compare this checksum with that one you can find on the XAMPP for Windows homepage.</li>
         </ul>
       </p>
-      <p>Ha mindkét ellenőrzőösszeg azonos, akkor minden rendben van. Ha nem, akkor a letöltött fájl sérült vagy a fájl módosult.</p>
+      <p>If both checksums equal, all is ok. If not, the download is broken or the file has been changed.</p>
       </dd>
 
-      <dt>Miért nem érvényesülnek a php.ini fájlban elvégzett módosítások?</dt>
+      <dt>Why have changes in my php.ini not taken effect?</dt>
       <dd>
-      <p>Ha a „php.ini” fájlban elvégzett módosításnak nincs hatása, lehetséges, hogy a PHP egy másikat használ. Ezt a phpinfo() függvénnyel ellenőrizheti. Látogassa meg a http://localhost/xampp/phpinfo.php oldalt, és keressen rá a „Loaded Configuration File” kifejezésre. Ez az érték jeleníti meg azt a „php.ini” fájlt, amelyet a PHP igazából használ.</p>
-      <p><strong>Megjegyzés:</strong> A „php.ini” módosítása után újra kell indítania az Apache webkiszolgálót, hogy az Apache/PHP be tudja olvasni az új beállításokat.</p>
+      <p>If a change in the "php.ini" has no effect, it's possible PHP is using a different one. You can verify this with phpinfo(). Go to the URI  http://localhost/xampp/phpinfo.php and search for "Loaded Configuration File". This value shows you the "php.ini" PHP is really using.</p>
+      <p><strong>Note:</strong> After changing the "php.ini" you have to restart Apache so that Apache/PHP can read the new settings.</p>
       </dd>
 
-      <dt>Segítség! Vírusos a XAMPP!</dt>
+      <dt>Help! There is a virus in XAMPP!</dt>
       <dd>
-      <p>Néhány vírusirtó program hibásan vírusnak érzékeli a XAMPP-ot, tipikusan a xampp-manager.exe fájlt megjelölve. Ez egy vakriasztás, amely azt jelenti, hogy a vírusirtó tévesen vírusként azonosítja, miközben nem az. A XAMPP minden egyes új verziójának kiadása előtt lefuttatunk egy víruskereső programot. Jelenleg ezt használjuk: <a href="http://www.kaspersky.com/virusscanner">Kapersky Online Virus Scanner</a>. You can also use the online tool <a href="https://www.virustotal.com/">Virus Total</a> for scanning XAMPP or send us an email to security (at) apachefriends (dot) org if you find any issue.</p>
+      <p>Some antivirus programs mistake XAMPP for a virus, typically flagging the file xampp-manager.exe This is a false positive meaning that the antivirus erroneously identified it as a virus, when it is not. Before we release each new version of XAMPP we run it through virus scanning software. At the moment we are using <a href="http://www.kaspersky.com/virusscanner">Kapersky Online Virus Scanner</a>. You can also use the online tool <a href="https://www.virustotal.com/">Virus Total</a> for scanning XAMPP or send us an email to security (at) apachefriends (dot) org if you find any issue.</p>
       </dd>
 
-      <dt>Hogyan állítsam be a vírusirtó alkalmazásomat?</dt>
+      <dt>How do I configure my antivirus application?</dt>
       <dd>
-      <p>Minden függőséget és kiszolgálót mellékelünk, amely a csomagolt webalkalmazás futtatásához szükséges, így a XAMPP telepítésben nagy számú fájlt fog találni. Amennyiben a XAMPP alkalmazást egy olyan Windowst futtató számítógépre telepíti, amelyen bekapcsolt vírusirtó alkalmazás van, akkor ez jelentősen lelassíthatja a telepítést, és megvan az esély arra, hogy a kiszolgálók egyikét (webkiszolgáló, adatbázis-kiszolgáló) blokkolja a vírusirtó program. Ha engedélyezve van egy vírusirtó eszköz, ellenőrizze a következő beállításokat a XAMPP teljesítményproblémák nélküli futtatásához:</p>
+      <p>We have included all dependences and servers required for running the bundled web application, so you will find that XAMPP installs large numbers of files. If you are installing a XAMPP application on a Windows machine with an antivirus app enabled, this may slow down the installation significantly, and there is also a chance that one of the servers (web server, database server) may be blocked by the antivirus software. If you have an antivirus tool enabled, check the following settings for running XAMPP without performance issues:</p>
       <p>
         <ul>
-          <li>Kivételek hozzáadása a tűzfalhoz: az Apache, a MySQL vagy bármely más kiszolgálóhoz.</li>
-          <li>Fájlok vizsgálata végrehajtáskor: ha engedélyezve van a vírusirtó vizsgálata minden fájlra, a kiszolgálók végrehajtható fájljait lelassíthatja.</li>
-          <li>A forgalom vizsgálata különböző URL-eknél: ha a saját gépén fejleszt a XAMPP programmal, zárja ki a „localhost” forgalmát a vírusirtó beállításaiban.</li>
+          <li>Add exceptions in the firewall: for Apache, MySQL or any other server.</li>
+          <li>Scan files when executing: If you have enabled the antivirus scan for all files, the executable files for the servers may slow down.</li>
+          <li>Scan the traffic for different URLs: If you are developing with XAMPP on your own machine, you can exclude "localhost" traffic in the Antivirus settings.</li>
         </ul>
       </p>
       </dd>
 
-      <dt>Miért nem indul az Apache kiszolgáló a rendszeremen?</dt>
+      <dt>Why doesn't the Apache server start on my system?</dt>
       <dd>
-      <p>Ennek a problémának számos oka lehet:</p>
+      <p>This problem can be one of several reasons:</p>
       <p>
         <ul>
-          <li>Egynél több HTTP kiszolgálót indított el (IIS, Sambar, ZEUS, stb.). Csak egyetlen kiszolgáló használhatja a 80-as portot. Ez a hibaüzenet jelzi a problémát:<br/>
+          <li>You have started more then one HTTP Server (IIS, Sambar, ZEUS and so on). Only one Server can use port 80. This error message indicate the problem:<br/>
 <code>(OS 10048)... make_sock: could not bind to adress 0.0.0.0:80
 no listening sockets available, shutting down</code></li>
-          <li>Más szoftverei is vannak, mint például a „Skype” internettelefon, amely szintén blokkolja a 80-as portot. Ha a „Skype” a probléma, menjen a Skype programban a Műveletek --> Beállítások --> Kapcsolat menüpontra, és távolítsa el a pipát a „80-as port használata tartalék portként” lehetőségből, majd indítsa újra a Skype programot. Ezután működnie kellene.</li>
-          <li>Tűzfala van, amely blokkolja az Apache portját. Nem minden tűzfal kompatibilis az Apache kiszolgálóval, és néha a tűzfal kikapcsolása nem elegendő, el kell távolítania azt. Ez a hibaüzenet jelzi a tűzfalat:<br/>
+          <li>You have other software, such as the Internet Telephone "Skype" which also blocks the port 80. If the problem is "Skype", you can go in Skype to Actions --> Options --> Connection --> remove the check mark at "use port 80 for an alternate port" and restart Skype. Now it should work.</li>
+          <li>You have a firewall which blocks the Apache port. Not all firewalls are compatible with Apache, and sometimes deactivating the firewall is not enough and you must deinstall it. This error message indicates a firewall:<br/>
 <code>(OS 10038)Socket operation on non-socket: make_sock: for address 0.0.0.0:80,
 apr_socket_opt_set: (SO_KEEPALIVE)</code></li>
         </ul>
-        <p>Ha az Apache el tud ugyan indulni, de a böngésző nem tud csatlakozni hozzá, akkor ez a következők egyike miatt lehet:</p>
+        <p>Also if Apache can start, but your browser can't connect to it it could be due to one of the following:</p>
         <ul>
-          <li>Néhány vírusirtó okozhatja ezt ugyanolyan módon, ahogy a tűzfalak zavarhatják.</li>
-          <li>XP Professional rendszere van 1. javítócsomag nélkül. Legalább SP1 szükséges a XAMPP programhoz.</li>
+          <li>Some virus scanners can cause this in the same way that firewalls can interfere.</li>
+          <li>You have XP Professional without service pack 1. You must have at least SP1 for XAMPP.</li>
         </ul>
       </p>
-      <p><strong>Tipp:</strong> Ha problémái vannak a portok használatával, megpróbálhatja a „xampp-portcheck.exe” eszközt. Talán segíthet.</p>
+      <p><strong>Tip:</strong> If you have problems with used ports, you can try the tool "xampp-portcheck.exe". Maybe it can help.</p>
       </dd>
 
-      <dt>Miért van majdnem 99%-os CPU terhelés az Apache használatakor?</dt>
+      <dt>Why is my CPU load for Apache almost 99%?</dt>
       <dd>
-      <p>Két forgatókönyv játszhat itt szerepet. Vagy a CPU van maximálisan kihasználva, vagy a böngésző képes ugyan csatlakozni a kiszolgálóhoz, de nem lát semmit (a rendszer sikertelenül próbálja betölteni az oldalt). Mindkét esetben a következő üzenetet láthatja az Apache naplófájljában:</p>
+      <p>There is one of two scenarios at play here. Either your CPU is maxing out, or you can browser connect to the server, but not see anything (the system is trying unsucessfully to load the page). In either case you can find the following message in the Apache log file:</p>
       <p><code>Child: Encountered too many AcceptEx faults accepting client connections.
 winnt_mpm: falling back to 'AcceptFilter none'.</code></p>
-      <p>Az MPM visszaáll egy biztonságosabb megvalósításra, de néhány klienskérés nem lett helyesen feldolgozva. Ezen hiba elkerülésének érdekében használja az „AcceptFilter” beállítást a „none” elfogadásszűrővel a „\\xampp\\apache\\conf\\extra\\httpd-mpm.conf” fájlban.</p>
+      <p>The MPM falls back to a safer implementation, but some client requests were not processed correctly. In order to avoid this error, use "AcceptFilter" with accept filter "none" in the "\xampp\apache\conf\extra\httpd-mpm.conf" file.</p>
       </dd>
 
-      <dt>Miért nem jelennek meg a képek és a stíluslapok?</dt>
+      <dt>Why are pictures and style-sheets not displayed?</dt>
       <dd>
-      <p>Néha problémák vannak a képek és a stíluslapok megjelenítésével. Különösen akkor, ha ezek a fájlok egy hálózati eszközön találhatók. Ebben az esetben engedélyezhet (vagy hozzáadhat) egyet, ha a következő sorok a „\\xampp\\apache\\conf\\httpd.conf” fájlban vannak:</p>
+      <p>Sometimes there are problems with displaying pictures and style-sheets. Especially if these files are located on a network drive. In this case you can enable (or add) one if the following lines in the file "\xampp\apache\conf\httpd.conf":</p>
       <p><code>EnableSendfile off</br>
 EnableMMAP off</code></p>
-      <p>Ezt a hibát okozhatják sávszélesség-szabályzó programok is, mint például a NetLimiter.</p>
+      <p>This problem can also be caused by programs for regulating bandwidth, like NetLimiter.</p>
       </dd>
 
       <dt>How do I send email with XAMPP?</dt>
@@ -365,20 +365,20 @@ EnableMMAP off</code></p>
         <p>You can now use PHP's mail() function to send email from your application.</p> 
       </dd>
       
-      <dt>Hogyan állíthatok be rendszergazda jelszót a MySQL-ben?</dt>
+      <dt>How can I set a root password in MySQL?</dt>
       <dd>
       <p>Configure it with the "XAMPP Shell" (command prompt). Open the shell from the XAMPP control pane and execute this command:<code>mysqladmin.exe -u root password secret</code>This sets the root password to 'secret'.</p>
       </dd>
 
-      <dt>Használhatom a saját MySQL kiszolgálómat?</dt>
+      <dt>Can I use my own MySQL server?</dt>
       <dd>
-      <p>Igen. Egyszerűen ne indítsa el a MySQL kiszolgálót a XAMPP csomagból. Vegye figyelembe, hogy nem lehet két kiszolgálót elindítani ugyanazon a porton. Ha a „root” felhasználónak állított be jelszót, ne felejtse el szerkeszteni a „\\xampp\\phpMyAdmin\\config.inc.php” fájlt.</p>
+      <p>Yes. Simply don't start the MySQL from the XAMPP package. Please note that two servers cannot be started on the same port. If you have set a password for "root", please do not forget to edit the file "\xampp\phpMyAdmin\config.inc.php".</p>
       </dd>
 
-      <dt>Hogyan tudom korlátozni a phpMyAdmin kívülről való hozzáférését?</dt>
+      <dt>How do I restrict access to phpMyAdmin from the outside?</dt>
       <dd>
       <p>In the basic configuration of XAMPP, phpMyAdmin is accessible only from the same host that XAMPP is running on, at http://127.0.0.1 or http://localhost.</p>
-      <p>Mielőtt hozzáférne a MySQL kiszolgálóhoz, a phpMyAdmin kérni fog Öntől egy felhasználónevet és egy jelszót. Ne felejtsen el először beállítani jelszót a „root” felhasználónak.</p>
+      <p>Before you can access the MySQL server, phpMyAdmin will prompt you for a user name and password. Don't forget to set a password for the user "root" first.</p>
       </dd>
 
       <dt>How do I enable access to phpMyAdmin from the outside?</dt>
@@ -407,42 +407,42 @@ EnableMMAP off</code></p>
       </ul>
       </dd>
       
-      <dt>Hol van az IMAP támogatás a PHP-hoz?</dt>
+      <dt>Where is the IMAP support for PHP?</dt>
       <dd>
-      <p>Alapértelmezetten az IMAP támogatás nincs aktiválva a PHP-hoz az XAMPP programban néhány megmagyarázhatatlan előkészítési hiba miatt egy-két otthoni verzióban, mint például a Windows 98-ban. Ha NT rendszerekkel dolgozik, megnyithatja a „\\xampp\\php\\php.ini” fájlt a PHP-kiterjesztés aktiválásához a kezdő pontosvessző eltávolításával a „;extension=php_imap.dll” sor elejéről. Ilyennek kell lennie:</br>
+      <p>As default, the IMAP support for PHP is deactivated in XAMPP due to some mysterious initialization errors with some home versions like Windows 98. If you work with NT systems, you can open the file "\xampp\php\php.ini" to activate the php exstension by removing the beginning semicolon at the line ";extension=php_imap.dll". It should be:</br>
 <code>extension=php_imap.dll</code></p>
-      <p>Most indítsa újra az Apache kiszolgálót és az IMAP működni fog. Ugyanezeket a lépéseket használhatja minden olyan kiterjesztésnél, amely nincs engedélyezve az alapértelmezett beállításban.</p>
+      <p>Now restart Apache and IMAP should work. You can use the same steps for every extension, which is not enabled in the default configuration.</p>
       </dd>
 
-      <dt>Miért nem működik néhány nyílt forrású PHP alkalmazás a XAMPP programmal Windowson?</dt>
+      <dt>Why don't some PHP open source apps work with XAMPP on Windows?</dt>
       <dd>
-      <p>Számos Linuxhoz írt PHP alkalmazást vagy kiterjesztést még nem írtak át Windowsra. </p>
+      <p>A lot of PHP applications or extensions that have been written for Linux haven’t been ported to Windows. </p>
       </dd>
 
-      <dt>Törölhetem az „install” könyvtárat a telepítés után?</dt>
+      <dt>Can I delete the "install" directory after installation?</dt>
       <dd>
-      <p>Jobban tenné, ha nem. Az itt lévő parancsfájlok még szükségesek a XAMPP minden további csomagjához (kiegészítőkhöz) és frissítéséhez.</p>
+      <p>It's better not to. The scripts here are still needed for all additional packages (add-ons) and upgrades of XAMPP.</p>
       </dd>
 
-      <dt>Hogyan aktiválhatom az eAccelerator kiterjesztést?</dt>
+      <dt>How do I activate the eaccelerator?</dt>
       <dd>
-      <p>Mint a többi (Zend) kiterjesztést, a „php.ini” fájlban aktiválhatja. Ebben a fájlban engedélyezze a „;zend_extension = "\\xampp\\php\\ext\\php_eaccelerator.dll"” sort. Ilyennek kell lennie:</br>
+      <p>Like other (Zend) extensions, you can activate it in "php.ini". In this file, enable the line ";zend_extension = "\xampp\php\ext\php_eaccelerator.dll"". It should be:</br>
 <code>zend_extension = "\xampp\php\ext\php_eaccelerator.dll"</code></p>
       </dd>
 
-      <dt>Hogyan tudom javítani a csatlakozási hibát az MS SQL kiszolgálómhoz?</dt>
+      <dt>How do I fix a connection error to my MS SQL server?</dt>
       <dd>
-      <p>Ha az mssql kiterjesztés be lett töltve a php.ini fájlban, néha probléma jelentkezik, amikor kizárólag TCP/IP van használva. Kijavíthatja ezt a hibát a Microsoft által közzétett újabb „ntwdblib.dll” fájllal. Cserélje le a régebbi fájlt a „\\xampp\\apache\\bin” és a „\\xampp\\php” könyvtárban az újra. A licenc miatt nem csomagolhatjuk a XAMPP-hoz ennek a fájlnak az újabb verzióját.</p>
+      <p>If the mssql extension was loaded in the php.ini, sometimes problems appear when only TCP/IP is used. You can fix that problem with a newer "ntwdblib.dll" from Microsoft. Please replace the older file in "\xampp\apache\bin" and "\xampp\php" with the new one. Because of the license, we can't package a newer version of this file with XAMPP.</p>
       </dd>
 
-      <dt>Hogyan dolgozhatok a PHP mcrypt kiterjesztéssel?</dt>
+      <dt>How do I work with the PHP mcrypt extension?</dt>
       <dd>
-      <p>Ehhez nyitottunk egy témát a fórumban példákkal és lehetséges megoldásokkal: <a href="https://community.apachefriends.org/f/viewtopic.php?t=3012">MCrypt téma</a></p>
+      <p>For this, we have opened a topic in the forum with examples and possible solutions: <a href="https://community.apachefriends.org/f/viewtopic.php?t=3012">MCrypt topic</a></p>
       </dd>
 
-      <dt>Működik a Microsoft Active Server Pages (ASP) XAMPP-on?</dt>
+      <dt>Do Microsoft Active Server Pages (ASP) work with XAMPP?</dt>
       <dd>
-      <p>Nem. És az Apache::ASP a Perl kiegészítővel nem ugyanaz. Az Apache::ASP csak ismeri a Perl-parancsfájlokat, de az Internet Information Server (IIS) által tartalmazott ASP szintén ismeri a normál VBScriptet. Azonban az ASP .NET-hez elérhető harmadik fél által készített Apache-modul.</p>
+      <p>No. And Apache::ASP with the Perl Add-On is not the same. Apache::ASP only knows Perl-Script, but ASP from the Internet Information Server (IIS) also knows the normal VBScript. But for ASP .NET, there is a 3rd party Apache module available.</p>
       </dd>
 
       <dt>How can I get XAMPP working on port 80 under Windows 10?</dt>
@@ -495,13 +495,13 @@ EnableMMAP off</code></p>
   <li class="facebook"><a href="https://www.facebook.com/we.are.xampp">Like us on Facebook</a></li>
 </ul>
 
-            <p class="footer_copyright">Copyright © Apache Friends, 2022.</p>
+            <p class="footer_copyright">Copyright (c) 2022, Apache Friends</p>
           </div>
           <ul class="footer_links columns large-9">
             <li><a href="https://www.apachefriends.org/blog.html">Blog</a></li>
-            <li><a href="/privacy_policy.html">Adatvédelmi irányelv</a></li>
+            <li><a href="/privacy_policy.html">Privacy Policy</a></li>
             <li>
-<a target="_blank" href="http://www.fastly.com/">                CDN által nyújtott
+<a target="_blank" href="http://www.fastly.com/">                CDN provided by
                 <img width="48" data-2x="/dashboard/images/fastly-logo@2x.png" src="/dashboard/images/fastly-logo.png" />
 </a>            </li>
           </ul>
