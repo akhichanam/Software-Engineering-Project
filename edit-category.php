@@ -2,6 +2,7 @@
 <?php
 session_start();
 include('../config.php');
+$uip=$_SERVER['REMOTE_ADDR'];
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
@@ -11,22 +12,14 @@ date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 
-
 if(isset($_POST['submit']))
 {
-	$title=$_POST['title'];
-	$description=$_POST['description'];
-
-$sql=mysqli_query($con,"insert into privacy(title,description) values('$title','$description')");
-$_SESSION['msg']="Privacy Policy Added Created !!";
+	$name=$_POST['name'];
+	$id=intval($_GET['id']);
+$sql=mysqli_query($con,"update category set name='$name' where id='$id'");
+$_SESSION['msg']="Category Updated !!";
 
 }
-
-if(isset($_GET['del']))
-		  {
-		          mysqli_query($con,"delete from privacy where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Policy deleted !!";
-		  }
 
 ?>
 <!DOCTYPE html>
@@ -53,7 +46,7 @@ if(isset($_GET['del']))
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Privacy Policy</h3>
+								<h3>Category</h3>
 							</div>
 							<div class="module-body">
 
@@ -66,83 +59,51 @@ if(isset($_GET['del']))
 <?php } ?>
 
 
-									<?php if(isset($_GET['del']))
-{?>
-									<div class="alert alert-error">
-										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> 	<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?>
-									</div>
-<?php } ?>
-
 									<br />
 
+			<form class="form-horizontal row-fluid" name="Category" method="post" >
+<?php
+$id=intval($_GET['id']);
+$query=mysqli_query($con,"select * from category where id='$id'");
+while($row=mysqli_fetch_array($query))
+{
+        $name=$row['name'];
 
+?>									
+<div class="control-group">
+<label class="control-label" for="basicinput">Category Name</label>
+<div class="controls">
+<input type="text" placeholder="Enter category Name"  name="name" value="<?php echo  htmlentities($row['name']);?>" class="span8 tip" required>
+</div>
+</div>
 
+<div class="control-group">
+<label class="control-label" for="basicinput">Icon</label>
+<div class="controls">
+<img src="category/<?php echo htmlentities($row['icon']);?>" width="200" height="100"> <a href="update-categoryicon.php?id=<?php echo $row['id'];?>">Change Image</a>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label" for="basicinput">Logo</label>
+<div class="controls">
+<img src="category/<?php echo htmlentities($row['logo']);?>" width="200" height="100"> <a href="update-categorylogo.php?id=<?php echo $row['id'];?>">Change Image</a>
+</div>
+</div>
 
-
-			<form class="form-horizontal row-fluid" name="Category" method="post" enctype="multipart/form-data" >
+									<?php } ?>
 									
-<div class="control-group">
-<label class="control-label" for="basicinput">Title</label>
-<div class="controls">
-<input type="text" placeholder="Enter title"  name="title" class="span8 tip" required>
-</div>
-</div>
-
-<div class="control-group">
-<label class="control-label" for="basicinput">Desciption</label>
-<div class="controls">
-<input type="text" placeholder="Enter title"  name="description" class="span8 tip" required>
-</div>
-</div>
-
-
 
 	<div class="control-group">
 											<div class="controls">
-												<button type="submit" name="submit" class="btn">Add</button>
+												<button type="submit" name="submit" class="btn">Update</button>
 											</div>
 										</div>
-
 									</form>
 							</div>
 						</div>
 
 
-	<div class="module">
-							<div class="module-head">
-								<h3>Manage Policy</h3>
-							</div>
-							<div class="module-body table">
-								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Title</th>
-											<th>Description</th>
-											<th>Action</th>
-
-										</tr>
-									</thead>
-									<tbody>
-
-<?php $query=mysqli_query($con,"select * from privacy");
-$cnt=1;
-while($row=mysqli_fetch_array($query))
-{
-?>									
-										<tr>
-											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['title']);?></td>
-											<td><?php echo htmlentities($row['description'])?></td>
-																						<td>
-											<a href="privacy.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>			
-							</tr>
-										<?php $cnt=$cnt+1; } ?>
-										
-								</table>
-							</div>
-						</div>						
+						
 
 						
 						

@@ -1,115 +1,150 @@
 
 <?php
 session_start();
-error_reporting(0);
-include('config.php');
-// Code user Registration
-// Code for User login
+include('../config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{	
+header('location:index.php');
+}
+else{
+date_default_timezone_set('Asia/Kolkata');// change according timezone
+$currentTime = date( 'd-m-Y h:i:s A', time () );
+
+
 if(isset($_POST['submit']))
 {
-	$email1=$_POST['email'];
-	$query=mysqli_query($con,"select * from user where email='$email1'");
-	$result=mysqli_fetch_array($query);
-	if($result['email']!=null)
-	{
-
-                $from ="unishopper@gmail.com";
-                    $to=$email1;
-                    $otp=$result['otpsend'];
-
-                    $subject="verify-account-otp";
- 
-                    // Generating otp with php rand variable
-                    $message=strval($otp);
-                    $headers="From:" .$from;
-                    if(mail($to,$subject,"YOUR OTP IS______ ".$message,$headers)){
-                        	echo "<script>alert('You are successfully register otp send to registered mail check in inbox or spam');</script>";
-
-                    }else
-                        echo("mail send faild");
-	}
-}
-
-
-
-if(isset($_POST['reset']))
-{
-	$email1=$_POST['email'];
-	$password=md5($_POST['password']);
-$query=mysqli_query($con,"SELECT * FROM user WHERE email='$email1'");
-$num=mysqli_fetch_array($query);
+$sql=mysqli_query($con,"SELECT password FROM  admin where password='".md5($_POST['password'])."' && username='".$_SESSION['alogin']."'");
+$num=mysqli_fetch_array($sql);
 if($num>0)
 {
-mysqli_query($con,"update user set password='$password' WHERE email='$email1'  ");
-header('location:profile.php');
+ $con=mysqli_query($con,"update admin set password='".md5($_POST['newpassword'])."', updationDate='$currentTime' where username='".$_SESSION['alogin']."'");
+$_SESSION['msg']="Password Changed Successfully !!";
 }
 else
 {
-                            	echo "<script>alert('Wrong Email Please Renter proper');</script>";
-
+$_SESSION['msg']="Old Password not match !!";
 }
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <?php include('head.php'); ?>
-                <link rel="stylesheet" href="css/user-auth.css">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<?php include('sitefavicon.php'); ?>
+	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link type="text/css" href="css/theme.css" rel="stylesheet">
+	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
+	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+	<script type="text/javascript">
+function valid()
+{
+if(document.chngpwd.password.value=="")
+{
+alert("Current Password Filed is Empty !!");
+document.chngpwd.password.focus();
+return false;
+}
+else if(document.chngpwd.newpassword.value=="")
+{
+alert("New Password Filed is Empty !!");
+document.chngpwd.newpassword.focus();
+return false;
+}
+else if(document.chngpwd.confirmpassword.value=="")
+{
+alert("Confirm Password Filed is Empty !!");
+document.chngpwd.confirmpassword.focus();
+return false;
+}
+else if(document.chngpwd.newpassword.value!= document.chngpwd.confirmpassword.value)
+{
+alert("Password and Confirm Password Field do not match  !!");
+document.chngpwd.confirmpassword.focus();
+return false;
+}
+return true;
+}
+</script>
+</head>
+<body>
+<?php include('header.php');?>
 
-    </head>
-    <body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+<?php include('sidebar.php');?>				
+			<div class="span9">
+					<div class="content">
+
+						<div class="module">
+							<div class="module-head">
+								<h3>Admin Change Password</h3>
+							</div>
+							<div class="module-body">
+
+									<?php if(isset($_POST['submit']))
+{?>
+									<div class="alert alert-success">
+										<button type="button" class="close" data-dismiss="alert">×</button>
+										<?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?>
+									</div>
+<?php } ?>
+									<br />
+
+			<form class="form-horizontal row-fluid" name="chngpwd" method="post" onSubmit="return valid();">
+									
+<div class="control-group">
+<label class="control-label" for="basicinput">Current Password</label>
+<div class="controls">
+<input type="password" placeholder="Enter your current Password"  name="password" class="span8 tip" required>
+</div>
+</div>
+
+
+<div class="control-group">
+<label class="control-label" for="basicinput">New Password</label>
+<div class="controls">
+<input type="password" placeholder="Enter your new current Password"  name="newpassword" class="span8 tip" required>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="basicinput">Current Password</label>
+<div class="controls">
+<input type="password" placeholder="Enter your new Password again"  name="confirmpassword" class="span8 tip" required>
+</div>
+</div>
 
 
 
-<?php include('header.php') ?>
 
-               <!--=====================================
-                    USER FORM PART START
-        =======================================-->
-                                                
-        <section class="user-form-part">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-sm-10 col-md-12 col-lg-12 col-xl-10">
-                        <div class="user-form-card">
-                            <div class="user-form-title">
-                                <h2>Start Shopping Now!</h2>
-                            </div>
-                            <div class="user-form-group">
-                                
-                                <form class="user-form" role="form"  method="post" name="login" onSubmit="return valid();">
-                                    <div class="form-group">
-                                        <input type="email" name="email" required class="form-control" placeholder="Enter your email">
-                                    </div>
+										
 
-                                    <div class="form-group">
-                                        <input type="password" name="password" required class="form-control" placeholder="Enter your New Password">
-                                    </div>
+										<div class="control-group">
+											<div class="controls">
+												<button type="submit" name="submit" class="btn">Submit</button>
+											</div>
+										</div>
+									</form>
 
+							</div>
+							
+						</div>
 
-                                    <div class="form-button">
-                                        <button type="submit" name="reset">Reset Password</button>
-                                    </div>
-                                </form>
+						
+						
+					</div><!--/.content-->
+				</div><!--/.span9-->
+			</div>
+		</div><!--/.container-->
+	</div><!--/.wrapper-->
+<?php include('footer.php');?>
 
-                            </div>
-                        </div>
-                        <div class="user-form-remind">
-                            <p>New Customer?<a href="register.php">register here</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--=====================================
-                    USER FORM PART END
-        =======================================-->
-
-
-<?php include('footer.php'); ?>
-
-    </body>
-</html>
+	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
+</body>
+<?php } ?>

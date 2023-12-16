@@ -12,12 +12,6 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 
 
-if(isset($_GET['del']))
-		  {
-
-		          mysqli_query($con,"delete from contact where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="User Removed !!";
-		  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,59 +26,13 @@ if(isset($_GET['del']))
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
 </head>
 <body>
-<?php include('header.php');?>
 
+<?php include('header.php');?>
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
 <?php include('sidebar.php');?>				
-			<div class="span9">
-					<div class="content">
 
-
-	<div class="module">
-							<div class="module-head">
-								<h3>Manage Contacts</h3>
-							</div>
-							<div class="module-body table">
-								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Name</th>
-											<th>Email/Subject</th><th> Message</th>
-										</tr>
-									</thead>
-									<tbody>
-
-<?php $query=mysqli_query($con,"select * from contact");
-$cnt=1;
-while($row=mysqli_fetch_array($query))
-{
-?>									
-										<tr>
-											<td><?php echo htmlentities($cnt);?></td>
-											<td>
-												<?php echo htmlentities($row['name']);?> 
-											</td>
-											<td>
-											<?php echo htmlentities($row['email']);?><br/>
-											
-											<?php echo htmlentities($row['subject']);?></td>
-											<td>
-											<?php echo htmlentities($row['message']);?></td>
-											<td>
-											<a href="contactus.php?id=<?php echo $row['id']?>&del=delete" ><i class="icon-remove-sign"></i></a></td>									</tr>
-										<?php $cnt=$cnt+1; } ?>
-										
-								</table>
-							</div>
-						</div>						
-
-						
-						
-					</div><!--/.content-->
-				</div><!--/.span9-->
 			</div>
 		</div><!--/.container-->
 	</div><!--/.wrapper-->

@@ -2,31 +2,27 @@
 <?php
 session_start();
 include('../config.php');
+$uip=$_SERVER['REMOTE_ADDR'];
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
 }
 else{
-date_default_timezone_set('Asia/Kolkata');// change according timezone
-$currentTime = date( 'd-m-Y h:i:s A', time () );
-
-
-
+	$pid=intval($_GET['id']);// product id
 if(isset($_POST['submit']))
 {
-	$title=$_POST['title'];
-	$description=$_POST['description'];
+	$brandname=$_POST['brandname'];
+	$image=$_FILES["image"]["name"];
+//$dir="productimages";
+//unlink($dir.'/'.$pimage);
 
-$sql=mysqli_query($con,"insert into privacy(title,description) values('$title','$description')");
-$_SESSION['msg']="Privacy Policy Added Created !!";
+
+	move_uploaded_file($_FILES["image"]["tmp_name"],"brands/".$_FILES["image"]["name"]);
+	$sql=mysqli_query($con,"update  brand set image='$image' where id='$pid' ");
+$_SESSION['msg']="Image Updated Successfully !!";
 
 }
 
-if(isset($_GET['del']))
-		  {
-		          mysqli_query($con,"delete from privacy where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Policy deleted !!";
-		  }
 
 ?>
 <!DOCTYPE html>
@@ -40,6 +36,27 @@ if(isset($_GET['del']))
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
 	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+   <script>
+function getSubcat(val) {
+	$.ajax({
+	type: "POST",
+	url: "get_subcat.php",
+	data:'cat_id='+val,
+	success: function(data){
+		$("#subcategory").html(data);
+	}
+	});
+}
+function selectCountry(val) {
+$("#search-box").val(val);
+$("#suggesstion-box").hide();
+}
+</script>	
+
+
 </head>
 <body>
 <?php include('header.php');?>
@@ -53,7 +70,7 @@ if(isset($_GET['del']))
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Privacy Policy</h3>
+								<h3>Update Image </h3>
 							</div>
 							<div class="module-body">
 
@@ -66,84 +83,75 @@ if(isset($_GET['del']))
 <?php } ?>
 
 
-									<?php if(isset($_GET['del']))
-{?>
-									<div class="alert alert-error">
-										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh snap!</strong> 	<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?>
-									</div>
-<?php } ?>
 
 									<br />
 
+			<form class="form-horizontal row-fluid" name="insertproduct" method="post" enctype="multipart/form-data">
+
+<?php 
+
+$query=mysqli_query($con,"select name,image from brand where id='$pid'");
+$cnt=1;
+while($row=mysqli_fetch_array($query))
+{
+  
 
 
+?>
 
 
-			<form class="form-horizontal row-fluid" name="Category" method="post" enctype="multipart/form-data" >
-									
 <div class="control-group">
-<label class="control-label" for="basicinput">Title</label>
+<label class="control-label" for="basicinput">Brand Name</label>
 <div class="controls">
-<input type="text" placeholder="Enter title"  name="title" class="span8 tip" required>
+<input type="text"    name="brandname"  readonly value="<?php echo htmlentities($row['name']);?>" class="span8 tip" required>
 </div>
 </div>
+
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Desciption</label>
+<label class="control-label" for="basicinput">Brand Image</label>
 <div class="controls">
-<input type="text" placeholder="Enter title"  name="description" class="span8 tip" required>
+<img src="brands/<?php echo htmlentities($row['image']);?>" width="200" height="100"> 
 </div>
 </div>
 
 
+
+<div class="control-group">
+<label class="control-label" for="basicinput">New Brand Image</label>
+<div class="controls">
+<input type="file" name="image" id="image" value="" class="span8 tip" required onchange="readURL(this);" >
+<img id="blah" src="#" alt="your image" />
+<script>
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#blah').attr('src', e.target.result).width(150).height(200);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+</div>
+</div>
+
+
+<?php } ?>
 
 	<div class="control-group">
 											<div class="controls">
-												<button type="submit" name="submit" class="btn">Add</button>
+												<button type="submit" name="submit" class="btn">Update</button>
 											</div>
 										</div>
-
 									</form>
 							</div>
 						</div>
 
 
-	<div class="module">
-							<div class="module-head">
-								<h3>Manage Policy</h3>
-							</div>
-							<div class="module-body table">
-								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Title</th>
-											<th>Description</th>
-											<th>Action</th>
-
-										</tr>
-									</thead>
-									<tbody>
-
-<?php $query=mysqli_query($con,"select * from privacy");
-$cnt=1;
-while($row=mysqli_fetch_array($query))
-{
-?>									
-										<tr>
-											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['title']);?></td>
-											<td><?php echo htmlentities($row['description'])?></td>
-																						<td>
-											<a href="privacy.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>			
-							</tr>
-										<?php $cnt=$cnt+1; } ?>
-										
-								</table>
-							</div>
-						</div>						
-
+	
 						
 						
 					</div><!--/.content-->

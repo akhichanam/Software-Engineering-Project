@@ -7,26 +7,10 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
+
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
-
-
-if(isset($_POST['submit']))
-{
-	$title=$_POST['title'];
-	$description=$_POST['description'];
-
-$sql=mysqli_query($con,"insert into privacy(title,description) values('$title','$description')");
-$_SESSION['msg']="Privacy Policy Added Created !!";
-
-}
-
-if(isset($_GET['del']))
-		  {
-		          mysqli_query($con,"delete from privacy where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Policy deleted !!";
-		  }
 
 ?>
 <!DOCTYPE html>
@@ -40,6 +24,18 @@ if(isset($_GET['del']))
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
 	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+	<script language="javascript" type="text/javascript">
+var popUpWin=0;
+function popUpWindow(URLStr, left, top, width, height)
+{
+ if(popUpWin)
+{
+if(!popUpWin.closed) popUpWin.close();
+}
+popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width='+600+',height='+600+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
+}
+
+</script>
 </head>
 <body>
 <?php include('header.php');?>
@@ -51,22 +47,12 @@ if(isset($_GET['del']))
 			<div class="span9">
 					<div class="content">
 
-						<div class="module">
+	<div class="module">
 							<div class="module-head">
-								<h3>Privacy Policy</h3>
+								<h3>Pending Orders</h3>
 							</div>
-							<div class="module-body">
-
-									<?php if(isset($_POST['submit']))
-{?>
-									<div class="alert alert-success">
-										<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Well done!</strong>	<?php echo htmlentities($_SESSION['msg']);?><?php echo htmlentities($_SESSION['msg']="");?>
-									</div>
-<?php } ?>
-
-
-									<?php if(isset($_GET['del']))
+							<div class="module-body table">
+	<?php if(isset($_GET['del']))
 {?>
 									<div class="alert alert-error">
 										<button type="button" class="close" data-dismiss="alert">×</button>
@@ -76,70 +62,50 @@ if(isset($_GET['del']))
 
 									<br />
 
-
-
-
-
-			<form class="form-horizontal row-fluid" name="Category" method="post" enctype="multipart/form-data" >
-									
-<div class="control-group">
-<label class="control-label" for="basicinput">Title</label>
-<div class="controls">
-<input type="text" placeholder="Enter title"  name="title" class="span8 tip" required>
-</div>
-</div>
-
-<div class="control-group">
-<label class="control-label" for="basicinput">Desciption</label>
-<div class="controls">
-<input type="text" placeholder="Enter title"  name="description" class="span8 tip" required>
-</div>
-</div>
-
-
-
-	<div class="control-group">
-											<div class="controls">
-												<button type="submit" name="submit" class="btn">Add</button>
-											</div>
-										</div>
-
-									</form>
-							</div>
-						</div>
-
-
-	<div class="module">
-							<div class="module-head">
-								<h3>Manage Policy</h3>
-							</div>
-							<div class="module-body table">
-								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
+							
+								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display table-responsive" >
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Title</th>
-											<th>Description</th>
+											<th width="30">Name/Email /Contact no/ Shipping Address</th>
+											<th>Product </th>
+											<th>Amount/Payment Screenshot </th>
+											<th>Order Date
+											/ Order Id/Payment Id</th>
 											<th>Action</th>
-
+											
+										
 										</tr>
 									</thead>
-									<tbody>
-
-<?php $query=mysqli_query($con,"select * from privacy");
+								
+<tbody>
+<?php 
+$status='pending';
+$query=mysqli_query($con,"select *,product.name as pname,product.discountprice as pprice,user.name as uname,user.email as uemail,orders.picode as upin,orders.useraddress as uaddress,orders.phone  as ucontact from orders join user on user.id=orders.userid join usercontacts on usercontacts.userid=orders.userid join useaddress on useaddress.userid=orders.userid join product on product.id=orders.productid where orders.orderstatus='$status' or orders.orderstatus is null");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
-?>									
+?>										
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['title']);?></td>
-											<td><?php echo htmlentities($row['description'])?></td>
-																						<td>
-											<a href="privacy.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>			
-							</tr>
+											<td><?php echo htmlentities($row['uname']);?>
+<br/><?php echo htmlentities($row['uemail']);?><br/><?php echo htmlentities($row['ucontact']);?><br/>
+<?php echo htmlentities($row['uaddress']); echo "-";echo htmlentities($row['upin']);?></td>
+
+											<td><?php echo htmlentities($row['pname']);?>  X
+											<?php echo htmlentities($row['quantity']);?>  </td>
+											<td><?php echo htmlentities($row['quantity']*$row['pprice']);?><br/>
+										<a href="payment/<?php echo $row['paymentproof']?>" target="_blank"	><img src="payment/<?php echo $row['paymentproof']?>"></a></td>
+											<td><?php echo htmlentities($row['orderdate']);?>
+											<br/><?php echo htmlentities($row['orderid']);?>
+											<?php echo htmlentities($row['paymentid']);?></td>
+											
+											<td>   <a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Update order" target="_blank"><i class="icon-edit"></i></a>
+											</td>
+											</tr>
+
 										<?php $cnt=$cnt+1; } ?>
-										
+										</tbody>
 								</table>
 							</div>
 						</div>						

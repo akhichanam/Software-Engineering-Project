@@ -14,18 +14,20 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_POST['submit']))
 {
-	$title=$_POST['title'];
-	$description=$_POST['description'];
+	$city=$_POST['city'];
+	$state=$_POST['state'];
+	$pincode=$_POST['pincode'];
+	$price=$_POST['price'];
 
-$sql=mysqli_query($con,"insert into privacy(title,description) values('$title','$description')");
-$_SESSION['msg']="Privacy Policy Added Created !!";
+$sql=mysqli_query($con,"insert into pincode(city,state,pincode,price) values('$city','$state','$pincode','$price')");
+$_SESSION['msg']="Added Created !!";
 
 }
 
 if(isset($_GET['del']))
 		  {
-		          mysqli_query($con,"delete from privacy where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Policy deleted !!";
+		          mysqli_query($con,"delete from pincode where id = '".$_GET['id']."'");
+                  $_SESSION['delmsg']="deleted !!";
 		  }
 
 ?>
@@ -53,7 +55,7 @@ if(isset($_GET['del']))
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Privacy Policy</h3>
+								<h3>FAQs</h3>
 							</div>
 							<div class="module-body">
 
@@ -83,18 +85,35 @@ if(isset($_GET['del']))
 			<form class="form-horizontal row-fluid" name="Category" method="post" enctype="multipart/form-data" >
 									
 <div class="control-group">
-<label class="control-label" for="basicinput">Title</label>
+<label class="control-label" for="basicinput">City</label>
 <div class="controls">
-<input type="text" placeholder="Enter title"  name="title" class="span8 tip" required>
+<input type="text" placeholder="Enter title"  name="city" class="span8 tip" required>
+</div>
+</div>
+
+
+<div class="control-group">
+<label class="control-label" for="basicinput">State</label>
+<div class="controls">
+<input type="text" placeholder="Enter title"  name="state" class="span8 tip" required>
 </div>
 </div>
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Desciption</label>
+<label class="control-label" for="basicinput">Pincode</label>
 <div class="controls">
-<input type="text" placeholder="Enter title"  name="description" class="span8 tip" required>
+<input type="number" placeholder="Enter title"  name="pincode" class="span8 tip" required>
 </div>
 </div>
+
+
+<div class="control-group">
+<label class="control-label" for="basicinput">Price</label>
+<div class="controls">
+<input type="number" placeholder="Enter title"  name="price" class="span8 tip" required>
+</div>
+</div>
+
 
 
 
@@ -111,32 +130,34 @@ if(isset($_GET['del']))
 
 	<div class="module">
 							<div class="module-head">
-								<h3>Manage Policy</h3>
+								<h3>Manage Pincode</h3>
 							</div>
 							<div class="module-body table">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Title</th>
-											<th>Description</th>
+											<th>City/State</th>
+											<th>Pincode/Price</th>
 											<th>Action</th>
 
 										</tr>
 									</thead>
 									<tbody>
 
-<?php $query=mysqli_query($con,"select * from privacy");
+<?php $query=mysqli_query($con,"select * from pincode");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>									
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['title']);?></td>
-											<td><?php echo htmlentities($row['description'])?></td>
+											<td><?php echo htmlentities($row['city']);?><br/>
+												<?php echo htmlentities($row['state']);?></td>
+											<td><?php echo htmlentities($row['pincode'])?><br/>
+												<?php echo htmlentities($row['price']);?></td>
 																						<td>
-											<a href="privacy.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>			
+											<a href="pincode.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>			
 							</tr>
 										<?php $cnt=$cnt+1; } ?>
 										

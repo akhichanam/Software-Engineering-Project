@@ -10,22 +10,34 @@ else{
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 
+if(isset($_POST['submit1']))
+{
+	$texttitle=$_POST['texttitle'];
+	$buttontext=$_POST['buttontext'];
+	
+$sql=mysqli_query($con,"update  coupontitle set texttitle='$texttitle',buttontext='$buttontext' where id='1' ");
+$_SESSION['msg']="Updated Successfully !!";
+
+}
 
 
 if(isset($_POST['submit']))
 {
-	$title=$_POST['title'];
-	$description=$_POST['description'];
+	$code=$_POST['code'];
+	$name=$_POST['name'];
+	$percentage=$_POST['percentage'];
+	$image=$_FILES["image"]["name"];
+	move_uploaded_file($_FILES["image"]["tmp_name"],"coupon/".$_FILES["image"]["name"]);
 
-$sql=mysqli_query($con,"insert into privacy(title,description) values('$title','$description')");
-$_SESSION['msg']="Privacy Policy Added Created !!";
+$sql=mysqli_query($con,"insert into coupon(code,name,percentage,image) values('$code','$name','$percentage','$image')");
+$_SESSION['msg']="Coupon Created !!";
 
 }
 
 if(isset($_GET['del']))
 		  {
-		          mysqli_query($con,"delete from privacy where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Policy deleted !!";
+		          mysqli_query($con,"delete from coupon where id = '".$_GET['id']."'");
+                  $_SESSION['delmsg']="Coupon deleted !!";
 		  }
 
 ?>
@@ -53,7 +65,7 @@ if(isset($_GET['del']))
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Privacy Policy</h3>
+								<h3>Coupons</h3>
 							</div>
 							<div class="module-body">
 
@@ -78,29 +90,102 @@ if(isset($_GET['del']))
 
 
 
+			<form class="form-horizontal row-fluid" name="insertproduct" method="post" enctype="multipart/form-data">
+
+
+
+<?php 
+$query=mysqli_query($con,"select * from coupontitle");
+while($row=mysqli_fetch_array($query))
+{
+  
+
+
+?>
+
+<div class="control-group">
+<label class="control-label" for="basicinput">Title </label>
+<div class="controls">
+<input type="text"    name="texttitle"  placeholder="Enter Title" value="<?php echo htmlentities($row['texttitle']);?>" class="span8 tip" >
+</div>
+</div>
+<div class="control-group">
+<label class="control-label" for="basicinput">Button Title</label>
+<div class="controls">
+<input type="text"    name="buttontext"  placeholder="Enter Product Name" value="<?php echo htmlentities($row['buttontext']);?>" class="span8 tip" >
+</div>
+</div>
+
+
+
+<?php }?>
+	<div class="control-group">
+											<div class="controls">
+												<button type="submit" name="submit1" class="btn">Update</button>
+											</div>
+										</div>
+									</form>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
 
 
 			<form class="form-horizontal row-fluid" name="Category" method="post" enctype="multipart/form-data" >
 									
 <div class="control-group">
-<label class="control-label" for="basicinput">Title</label>
+<label class="control-label" for="basicinput">Coupon Code</label>
 <div class="controls">
-<input type="text" placeholder="Enter title"  name="title" class="span8 tip" required>
+<input type="text" placeholder="Enter Coupon Code Like PRWW1B2L7B"  name="code" class="span8 tip" required>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label" for="basicinput">Coupon Name</label>
+<div class="controls">
+<input type="text" placeholder="Enter Coupon Name Like Register"  name="name" class="span8 tip" required>
 </div>
 </div>
 
+
+
 <div class="control-group">
-<label class="control-label" for="basicinput">Desciption</label>
+<label class="control-label" for="basicinput">Coupon Discount %</label>
 <div class="controls">
-<input type="text" placeholder="Enter title"  name="description" class="span8 tip" required>
+<input type="number" placeholder=""  name="percentage"  class="span8 tip" required>
 </div>
 </div>
+
+
+
+<div class="control-group">
+<label class="control-label" for="basicinput">Coupon Image</label>
+<div class="controls">
+<input type="file" name="image" id="image" value="" class="span8 tip" required onchange="readURL(this);" >
+<img id="blah" src="#" alt="your image" />
+<script>
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#blah').attr('src', e.target.result).width(150).height(200);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+</div>
+</div>
+
 
 
 
 	<div class="control-group">
 											<div class="controls">
-												<button type="submit" name="submit" class="btn">Add</button>
+												<button type="submit" name="submit" class="btn">Create</button>
 											</div>
 										</div>
 
@@ -111,33 +196,38 @@ if(isset($_GET['del']))
 
 	<div class="module">
 							<div class="module-head">
-								<h3>Manage Policy</h3>
+								<h3>Manage Coupons</h3>
 							</div>
 							<div class="module-body table">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Title</th>
-											<th>Description</th>
+											<th>Coupon Code</th>
+											<th>Coupon Name</th>
+											<th>Coupon Image</th>
+											<th>Percentage %</th>
 											<th>Action</th>
-
 										</tr>
 									</thead>
 									<tbody>
 
-<?php $query=mysqli_query($con,"select * from privacy");
+<?php $query=mysqli_query($con,"select * from coupon");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>									
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['title']);?></td>
-											<td><?php echo htmlentities($row['description'])?></td>
-																						<td>
-											<a href="privacy.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>			
-							</tr>
+											<td><?php echo htmlentities($row['code']);?></td>
+											<td><?php echo htmlentities($row['name']);?></td>
+											<td><?php echo htmlentities($row['percentage']);?></td>
+
+<td>
+	<img src="coupon/<?php echo htmlentities($row['image']);?>">
+</td>
+											<td>
+											<a href="coupon.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>									</tr>
 										<?php $cnt=$cnt+1; } ?>
 										
 								</table>

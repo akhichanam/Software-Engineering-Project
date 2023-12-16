@@ -14,18 +14,17 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_POST['submit']))
 {
-	$title=$_POST['title'];
-	$description=$_POST['description'];
+	$type=$_POST['type'];
 
-$sql=mysqli_query($con,"insert into privacy(title,description) values('$title','$description')");
-$_SESSION['msg']="Privacy Policy Added Created !!";
+$sql=mysqli_query($con,"insert into addresstype(type) values('$type')");
+$_SESSION['msg']="Contact Type Created !!";
 
 }
 
 if(isset($_GET['del']))
 		  {
-		          mysqli_query($con,"delete from privacy where id = '".$_GET['id']."'");
-                  $_SESSION['delmsg']="Policy deleted !!";
+		          mysqli_query($con,"delete from addresstype where id = '".$_GET['id']."'");
+                  $_SESSION['delmsg']="Contact Type deleted !!";
 		  }
 
 ?>
@@ -53,7 +52,7 @@ if(isset($_GET['del']))
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Privacy Policy</h3>
+								<h3>Address Type</h3>
 							</div>
 							<div class="module-body">
 
@@ -83,18 +82,12 @@ if(isset($_GET['del']))
 			<form class="form-horizontal row-fluid" name="Category" method="post" enctype="multipart/form-data" >
 									
 <div class="control-group">
-<label class="control-label" for="basicinput">Title</label>
+<label class="control-label" for="basicinput">Type</label>
 <div class="controls">
-<input type="text" placeholder="Enter title"  name="title" class="span8 tip" required>
+<input type="text" placeholder="Enter Type"  name="type" class="span8 tip" required>
 </div>
 </div>
 
-<div class="control-group">
-<label class="control-label" for="basicinput">Desciption</label>
-<div class="controls">
-<input type="text" placeholder="Enter title"  name="description" class="span8 tip" required>
-</div>
-</div>
 
 
 
@@ -111,33 +104,27 @@ if(isset($_GET['del']))
 
 	<div class="module">
 							<div class="module-head">
-								<h3>Manage Policy</h3>
+								<h3>Manage Type</h3>
 							</div>
 							<div class="module-body table">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Title</th>
-											<th>Description</th>
-											<th>Action</th>
-
+											<th>Type</th>
 										</tr>
 									</thead>
 									<tbody>
 
-<?php $query=mysqli_query($con,"select * from privacy");
+<?php $query=mysqli_query($con,"select * from addresstype");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>									
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['title']);?></td>
-											<td><?php echo htmlentities($row['description'])?></td>
-																						<td>
-											<a href="privacy.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>			
-							</tr>
+											<td><?php echo htmlentities($row['type']);?></td>
+				</tr>
 										<?php $cnt=$cnt+1; } ?>
 										
 								</table>

@@ -1,8 +1,8 @@
 <?php
 session_start();
-include("config.php");
-$_SESSION['login']=="";
+$_SESSION['alogin']=="";
 session_unset();
+//session_destroy();
 $_SESSION['errmsg']="You have successfully logout";
 ?>
 <script language="javascript">
