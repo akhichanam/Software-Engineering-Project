@@ -1,12 +1,14 @@
 <?php
-define('DB_SERVER','localhost');
-define('DB_USER','root');
-define('DB_PASS' ,'');
-define('DB_NAME', 'unishoppers');
+include('config.php');
 $con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
-// Check connection
-if (mysqli_connect_errno())
+$query=mysqli_query($con,"select * from paymentdetails");
+if($row=mysqli_fetch_array($query))
 {
- echo "Failed to connect to MySQL: " . mysqli_connect_error();
+$keyId = $row['key_id'];
+$keySecret = $row['key_secret'];
+$displayCurrency = 'USD';
 }
-?>
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
