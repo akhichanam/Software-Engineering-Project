@@ -1,34 +1,32 @@
 {
-	"name": "DataTables",
-	"version": "1.9.4",
-	"title": "DataTables",
-	"author": {
-		"name": "Allan Jardine",
-		"url": "http://sprymedia.co.uk"
-	},
-	"licenses": [
-		{
-			"type": "BSD",
-			"url": "http://datatables.net/license_bsd"
-		},
-		{
-			"type": "GPLv2",
-			"url": "http://datatables.net/license_gpl2"
-		}
-	],
-	"dependencies": {
-		"jquery": "1.4 - 1.8"
-	},
-	"description": "DataTables enhances HTML tables with the ability to sort, filter and page the data in the table very easily. It provides a comprehensive API and set of configuration options, allowing you to consume data from virtually any data source.",
-	"keywords": [
-		"DataTables",
-		"DataTable",
-		"table",
-		"grid",
-		"filter",
-		"sort",
-		"page",
-		"internationalisable"
-	],
-	"homepage": "http://datatables.net"
+  "name": "jquery.dynatree",
+  "title": "jQuery Dynatree Plugin",
+  "description": "Dynatree is a JavaScript dynamic tree view plugin for jQuery with support for persistence, keyboard, checkboxes, drag'n'drop, and lazy loading.",
+  "version": "1.2.4",
+  "homepage": "http://dynatree.googlecode.com/",
+  "author": {
+    "name": "Martin Wendt",
+    "url": "http://wwwendt.de/"
+  },
+  "repository": {
+    "type": "svn",
+    "url": "http://dynatree.googlecode.com/svn/trunk/"
+  },
+  "bugs": {
+    "url": "https://code.google.com/p/dynatree/issues/list"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://code.google.com/p/dynatree/wiki/LicenseInfo"
+    },
+    {
+      "type": "GPL",
+      "url": "https://code.google.com/p/dynatree/wiki/LicenseInfo"
+    }
+  ],
+  "dependencies": {
+    "jquery": "~1.4.2"
+  },
+  "keywords": []
 }
